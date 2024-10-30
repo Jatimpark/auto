@@ -194,21 +194,17 @@ socket = l:TCP_NODELAY=1
 socket = r:TCP_NODELAY=1
 
 [dropbear]
-accept = 445
-connect = 127.0.0.1:22
-
-[dropbear]
-accept = 777
+accept = 447
 connect = 127.0.0.1:109
-
-[ws-stunnel]
-accept = 8443
-connect = 700
-
+[dropbear]
+accept = 445
+connect = 127.0.0.1:143
+[openssh]
+accept = 777
+connect = 127.0.0.1:22
 [openvpn]
 accept = 442
 connect = 127.0.0.1:1194
-
 END
 
 # make a certificate
@@ -252,6 +248,16 @@ echo; echo 'Installation has completed.'
 echo 'Config file is at /usr/local/ddos/ddos.conf'
 echo 'Please send in your comments and/or suggestions to zaf@vsnl.com'
 
+# Banner /etc/issue.net
+rm -fr /etc/issue.net
+rm -fr /etc/issue.net.save
+sleep 1
+echo -e "[ ${green}INFO$NC ] Settings banner"
+wget -q -O /etc/issue.net "https://raw.githubusercontent.com/Jatimpark/auto/master/main/ssh/issue.net"
+chmod +x /etc/issue.net
+echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
+sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
+
 # blokir torrent
 iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
 iptables -A FORWARD -m string --string "announce_peer" --algo bm -j DROP
@@ -272,31 +278,26 @@ netfilter-persistent reload
 # download script
 cd /usr/bin
 # menu
-wget -O menu "https://raw.githubusercontent.com/givpn/Jatimpark/auto/menu/menu.sh"
+wget -O menu "https://raw.githubusercontent.com/Jatimpark/auto/master/menu/menu.sh"
 wget -O m-vmess "https://raw.githubusercontent.com/Jatimpark/auto/master/menu/m-vmess.sh"
 wget -O m-vless "https://raw.githubusercontent.com/Jatimpark/auto/master/menu/m-vless.sh"
 wget -O running "https://raw.githubusercontent.com/Jatimpark/auto/master/menu/running.sh"
 wget -O clearcache "https://raw.githubusercontent.com/Jatimpark/auto/master/menu/clearcache.sh"
-wget -O m-ssws "https://raw.githubusercontent.com/Jatimpark/auto/master/menu/m-ssws.sh"
 wget -O m-tr "https://raw.githubusercontent.com/Jatimpark/auto/master/menu/m-tr.sh"
 
 # menu ssh ovpn
 wget -O m-ssh "https://raw.githubusercontent.com/Jatimpark/auto/master/menu/m-ssh.sh"
-wget -O tendang "https://raw.githubusercontent.com/givpn/AutoScriptXray/master/ssh/tendang.sh"
+wget -O tendang "https://raw.githubusercontent.com/Jatimpark/auto/master/master/ssh/tendang.sh"
 
 # menu system
 wget -O m-system "https://raw.githubusercontent.com/Jatimpark/auto/master/menu/m-system.sh"
-wget -O m-domain "https://raw.githubusercontent.com/Jatimpark/auto/master/menu/m-domain.sh"
-wget -O add-host "https://raw.githubusercontent.com/Jatimpark/auto/master/ssh/add-host.sh"
+wget -O add-host "https://raw.githubusercontent.com/Jatimpark/auto/master/menu/add-host.sh"
 wget -O certv2ray "https://raw.githubusercontent.com/Jatimpark/auto/master/xray/certv2ray.sh"
 wget -O speedtest "https://raw.githubusercontent.com/Jatimpark/auto/master/ssh/speedtest_cli.py"
 wget -O auto-reboot "https://raw.githubusercontent.com/Jatimpark/auto/master/menu/auto-reboot.sh"
 wget -O restart "https://raw.githubusercontent.com/Jatimpark/auto/master/menu/restart.sh"
 wget -O bw "https://raw.githubusercontent.com/Jatimpark/auto/master/menu/bw.sh"
-wget -O m-tcp "https://raw.githubusercontent.com/Jatimpark/auto/master/menu/tcp.sh"
 wget -O xp "https://raw.githubusercontent.com/Jatimpark/auto/master/ssh/xp.sh"
-wget -O sshws "https://raw.githubusercontent.com/Jatimpark/auto/master/ssh/sshws.sh"
-wget -O m-dns "https://raw.githubusercontent.com/Jatimpark/auto/master/menu/m-dns.sh"
 
 chmod +x menu
 chmod +x m-vmess
@@ -307,16 +308,13 @@ chmod +x m-tr
 chmod +x tendang
 
 chmod +x m-system
-chmod +x m-domain
 chmod +x add-host
 chmod +x certv2ray
 chmod +x speedtest
 chmod +x auto-reboot
 chmod +x restart
 chmod +x bw
-chmod +x m-tcp
 chmod +x xp
-chmod +x m-dns
 cd
 
 
