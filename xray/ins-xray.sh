@@ -133,7 +133,7 @@ cat > /etc/xray/config.json << END
        "streamSettings":{
          "network": "ws",
             "wsSettings": {
-                "path": "/vmess"
+                "path": "/St-Pusat"
           }
         }
      },
@@ -379,6 +379,8 @@ cat >/etc/nginx/conf.d/xray.conf <<EOF
              listen [::]:8880;
              listen 443 ssl http2 reuseport;
              listen [::]:443 http2 reuseport;	
+             listen 8443 ssl http2 reuseport;
+             listen [::]:8443 http2 reuseport;	
              server_name *.$domain;
              ssl_certificate /etc/xray/xray.crt;
              ssl_certificate_key /etc/xray/xray.key;
@@ -399,7 +401,7 @@ sed -i '$ iproxy_set_header Connection "upgrade";' /etc/nginx/conf.d/xray.conf
 sed -i '$ iproxy_set_header Host \$http_host;' /etc/nginx/conf.d/xray.conf
 sed -i '$ i}' /etc/nginx/conf.d/xray.conf
 
-sed -i '$ ilocation = /vmess' /etc/nginx/conf.d/xray.conf
+sed -i '$ ilocation = /St-Pusat' /etc/nginx/conf.d/xray.conf
 sed -i '$ i{' /etc/nginx/conf.d/xray.conf
 sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/xray.conf
 sed -i '$ iproxy_pass http://127.0.0.1:23456;' /etc/nginx/conf.d/xray.conf
