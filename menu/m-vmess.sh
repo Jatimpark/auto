@@ -55,7 +55,7 @@ asu=`cat<<EOF
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
-      "path": "/vmess",
+      "path": "/St-Pusat",
       "type": "none",
       "host": "",
       "tls": "tls"
@@ -70,7 +70,7 @@ ask=`cat<<EOF
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
-      "path": "/vmess",
+      "path": "/St-Pusat",
       "type": "none",
       "host": "",
       "tls": "none"
@@ -112,7 +112,7 @@ echo -e "id             : ${uuid}" | tee -a /etc/log-create-vmess.log
 echo -e "alterId        : 0" | tee -a /etc/log-create-vmess.log
 echo -e "Security       : auto" | tee -a /etc/log-create-vmess.log
 echo -e "Network        : ws" | tee -a /etc/log-create-vmess.log
-echo -e "Path           : /vmess" | tee -a /etc/log-create-vmess.log
+echo -e "Path           : /St-Pusat" | tee -a /etc/log-create-vmess.log
 echo -e "ServiceName    : vmess-grpc" | tee -a /etc/log-create-vmess.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vmess.log
 echo -e "Link TLS       : ${vmesslink1}" | tee -a /etc/log-create-vmess.log
@@ -153,7 +153,7 @@ asu=`cat<<EOF
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
-      "path": "/vmess",
+      "path": "/St-Pusat",
       "type": "none",
       "host": "",
       "tls": "tls"
@@ -168,7 +168,7 @@ ask=`cat<<EOF
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
-      "path": "/vmess",
+      "path": "/St-Pusat",
       "type": "none",
       "host": "",
       "tls": "none"
@@ -212,7 +212,7 @@ echo -e "id             : ${uuid}"
 echo -e "alterId        : 0"
 echo -e "Security       : auto"
 echo -e "Network        : ws"
-echo -e "Path           : /vmess"
+echo -e "Path           : /St-Pusat"
 echo -e "ServiceName    : vmess-grpc"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Link TLS       : ${vmesslink1}"
