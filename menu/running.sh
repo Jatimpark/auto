@@ -54,7 +54,7 @@ nontls_v2ray_status=$(systemctl status xray | grep Active | awk '{print $3}' | c
 vless_tls_v2ray_status=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 vless_nontls_v2ray_status=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 shadowsocks=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
-trojan_server=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
+#trojan_server=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 dropbear_status=$(/etc/init.d/dropbear status | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 stunnel_service=$(/etc/init.d/stunnel4 status | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 ssh_service=$(/etc/init.d/ssh status | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
@@ -145,11 +145,11 @@ else
   status_nontls_vless="${RED}  Not Running ${NC}  ( Error )${NC}"
 fi
 # STATUS SERVICE TROJAN
-if [[ $trojan_server == "running" ]]; then 
-   status_virus_trojan=" ${GREEN}Running ${NC}( No Error )${NC}"
-else
-   status_virus_trojan="${RED}  Not Running ${NC}  ( Error )${NC}"
-fi
+#if [[ $trojan_server == "running" ]]; then 
+#   status_virus_trojan=" ${GREEN}Running ${NC}( No Error )${NC}"
+#else
+#   status_virus_trojan="${RED}  Not Running ${NC}  ( Error )${NC}"
+#fi
 # STATUS SERVICE DROPBEAR
 if [[ $dropbear_status == "running" ]]; then 
    status_beruangjatuh=" ${GREEN}Running${NC} ( No Error )${NC}"
@@ -223,8 +223,8 @@ echo -e "\e[1;32m XRAYS Vmess TLS      \e[0m: $status_tls_v2ray"
 echo -e "\e[1;32m XRAYS Vmess None TLS \e[0m: $status_nontls_v2ray"
 echo -e "\e[1;32m XRAYS Vless TLS      \e[0m: $status_tls_vless"
 echo -e "\e[1;32m XRAYS Vless None TLS \e[0m: $status_nontls_vless"
-echo -e "\e[1;32m XRAYS Trojan         \e[0m: $status_virus_trojan"
-echo -e "\e[1;32m Shadowsocks          \e[0m: $status_shadowsocks"
+#echo -e "\e[1;32m XRAYS Trojan         \e[0m: $status_virus_trojan"
+#echo -e "\e[1;32m Shadowsocks          \e[0m: $status_shadowsocks"
 echo -e "\e[1;32m Websocket TLS        \e[0m: $swstls"
 echo -e "\e[1;32m Websocket None TLS   \e[0m: $swstls"
 echo -e "\e[1;33m -------------------------------------------------\e[0m"
