@@ -25,7 +25,7 @@ commonname=none
 email=none
 
 # simple password minimal
-curl -sS https://raw.githubusercontent.com/Jatimpark/auto/master/ssh/password | openssl aes-256-cbc -d -a -pass pass:scvps07gg -pbkdf2 > /etc/pam.d/common-password
+curl -sS https://raw.githubusercontent.com/Jatimpark/auto/main/ssh/password | openssl aes-256-cbc -d -a -pass pass:scvps07gg -pbkdf2 > /etc/pam.d/common-password
 chmod +x /etc/pam.d/common-password
 
 # go to root
@@ -253,7 +253,7 @@ rm -fr /etc/issue.net
 rm -fr /etc/issue.net.save
 sleep 1
 echo -e "[ ${green}INFO$NC ] Settings banner"
-wget -q -O /etc/issue.net "https://raw.githubusercontent.com/Jatimpark/auto/main/main/ssh/issue.net"
+wget -q -O /etc/issue.net "https://raw.githubusercontent.com/Jatimpark/auto/main/ssh/issue.net"
 chmod +x /etc/issue.net
 echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
@@ -302,6 +302,7 @@ wget -O xp "https://raw.githubusercontent.com/Jatimpark/auto/main/ssh/xp.sh"
 chmod +x menu
 chmod +x m-vmess
 chmod +x m-vless
+chmod +x m-ssh
 chmod +x running
 chmod +x clearcache
 chmod +x m-tr
