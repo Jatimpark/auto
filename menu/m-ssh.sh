@@ -55,7 +55,7 @@ echo -e "OpenSSH     : $opensh" | tee -a /etc/log-create-ssh.log
 echo -e "SSH WS      : $portsshws" | tee -a /etc/log-create-ssh.log
 echo -e "SSH SSL WS  : $wsssl" | tee -a /etc/log-create-ssh.log
 echo -e "SSL/TLS     : $ssl" | tee -a /etc/log-create-ssh.log
-echo -e "UDPGW       : 7100-7900" | tee -a /etc/log-create-ssh.log
+echo -e "UDPGW       : 7100-7300" | tee -a /etc/log-create-ssh.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
 echo -e "Payload WSS" | tee -a /etc/log-create-ssh.log
 echo -e "
@@ -81,10 +81,10 @@ echo -e "Host        : $domen" | tee -a /etc/log-create-ssh.log
 echo -e "OpenSSH     : $opensh" | tee -a /etc/log-create-ssh.log
 echo -e "SSH WS      : $portsshws" | tee -a /etc/log-create-ssh.log
 echo -e "SSH SSL WS  : $wsssl" | tee -a /etc/log-create-ssh.log
-echo -e "SSL/TLS     : $ssl" | tee -a /etc/log-create-ssh.log
-echo -e "UDPGW       : 7100-7900" | tee -a /etc/log-create-ssh.log
+echo -e "SSL/TLS     :$ssl" | tee -a /etc/log-create-ssh.log
+echo -e "UDPGW       : 7100-7300" | tee -a /etc/log-create-ssh.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
-echo -e "Expired On     : $exp" | tee -a /etc/log-create-ssh.log
+echo -e "Expired On  : $exp" | tee -a /etc/log-create-ssh.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
 echo -e "Payload WSS" | tee -a /etc/log-create-ssh.log
 echo -e "
@@ -158,8 +158,8 @@ echo -e "OpenSSH    : $opensh"
 echo -e "Dropbear   : $db"
 echo -e "SSH WS     : $portsshws"
 echo -e "SSH SSL WS : $wsssl"
-echo -e "SSL/TLS    : $ssl"
-echo -e "UDPGW      : 7100-7900"
+echo -e "SSL/TLS    :$ssl"
+echo -e "UDPGW      : 7100-7300"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Payload WSS"
 echo -e "GET wss://isi_bug_disini HTTP/1.1[crlf]Host: ${domen}[crlf]Upgrade: websocket[crlf][crlf]"
@@ -183,8 +183,8 @@ echo -e "OpenSSH    : $opensh"
 echo -e "Dropbear   : $db"
 echo -e "SSH WS     : $portsshws"
 echo -e "SSH SSL WS : $wsssl"
-echo -e "SSL/TLS    : $ssl"
-echo -e "UDPGW      : 7100-7900"
+echo -e "SSL/TLS    :$ssl"
+echo -e "UDPGW      : 7100-7300"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Payload WSS"
 echo -e "GET wss://isi_bug_disini HTTP/1.1[crlf]Host: ${domen}[crlf]Upgrade: websocket[crlf][crlf]"
