@@ -44,8 +44,8 @@ sed -i '/#trojanws$/a\#! '"$user $exp"'\
 sed -i '/#trojangrpc$/a\#! '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 
-trojanlink1="trojan://${uuid}@${domain}:${tls}?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=bug.com#${user}"
-trojanlink="trojan://${uuid}@bug.com:${tls}?path=%2Ftrojan-ws&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
+trojanlink1="trojan://${uuid}@${domain}:443?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=bug.com#${user}"
+trojanlink="trojan://${uuid}@bug.com:443?path=%2Ftrojan-ws&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
 systemctl restart xray
 clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-trojan.log
@@ -53,9 +53,9 @@ echo -e "\E[0;41;36m           TROJAN ACCOUNT          \E[0m" | tee -a /etc/log-
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-trojan.log
 echo -e "Remarks        : ${user}" | tee -a /etc/log-create-trojan.log
 echo -e "Host/IP        : ${domain}" | tee -a /etc/log-create-trojan.log
-echo -e "Port TLS       : ${tls}" | tee -a /etc/log-create-trojan.log
-#echo -e "Port none TLS  : ${ntls}" | tee -a /etc/log-create-trojan.log
-echo -e "Port gRPC      : ${tls}" | tee -a /etc/log-create-trojan.log
+echo -e "Port TLS       : 443, 8443" | tee -a /etc/log-create-trojan.log
+#echo -e "Port none TLS  : " | tee -a /etc/log-create-trojan.log
+echo -e "Port gRPC      : 443, 8443" | tee -a /etc/log-create-trojan.log
 echo -e "Key            : ${uuid}" | tee -a /etc/log-create-trojan.log
 echo -e "Path           : /trojan-ws" | tee -a /etc/log-create-trojan.log
 echo -e "ServiceName    : trojan-grpc" | tee -a /etc/log-create-trojan.log
@@ -98,9 +98,9 @@ echo -e "\E[0;41;36m           TRIAL TROJAN           \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Remarks        : ${user}"
 echo -e "Host/IP        : ${domain}"
-echo -e "Port TLS       : ${tls}"
-echo -e "Port none TLS  : ${ntls}"
-echo -e "Port gRPC      : ${tls}"
+echo -e "Port TLS       : 443, 8443"
+echo -e "Port none TLS  : 80, 8880"
+echo -e "Port gRPC      : 443, 8443"
 echo -e "Key            : ${uuid}"
 echo -e "Path           : /trojan-ws"
 echo -e "ServiceName    : trojan-grpc"

@@ -105,9 +105,9 @@ echo -e "\\E[0;41;36m        Vmess Account        \E[0m" | tee -a /etc/log-creat
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vmess.log
 echo -e "Remarks        : ${user}" | tee -a /etc/log-create-vmess.log
 echo -e "Domain         : ${domain}" | tee -a /etc/log-create-vmess.log
-echo -e "Port TLS       : ${tls}" | tee -a /etc/log-create-vmess.log
-echo -e "Port none TLS  : ${none}" | tee -a /etc/log-create-vmess.log
-echo -e "Port gRPC      : ${tls}" | tee -a /etc/log-create-vmess.log
+echo -e "Port TLS       : 443, 8443" | tee -a /etc/log-create-vmess.log
+echo -e "Port none TLS  : 80, 8880" | tee -a /etc/log-create-vmess.log
+echo -e "Port gRPC      : 443, 8443" | tee -a /etc/log-create-vmess.log
 echo -e "id             : ${uuid}" | tee -a /etc/log-create-vmess.log
 echo -e "alterId        : 0" | tee -a /etc/log-create-vmess.log
 echo -e "Security       : auto" | tee -a /etc/log-create-vmess.log
@@ -205,9 +205,9 @@ echo -e "\E[0;41;36m       Trial Mmess      \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
-echo -e "Port TLS       : ${tls}"
-echo -e "Port none TLS  : ${none}"
-echo -e "Port gRPC      : ${tls}"
+echo -e "Port TLS       : 443, 8443"
+echo -e "Port none TLS  : 80, 8880"
+echo -e "Port gRPC      : 443, 8443"
 echo -e "id             : ${uuid}"
 echo -e "alterId        : 0"
 echo -e "Security       : auto"

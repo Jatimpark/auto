@@ -43,9 +43,9 @@ sed -i '/#vless$/a\#& '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 sed -i '/#vlessgrpc$/a\#& '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-vlesslink1="vless://${uuid}@${domain}:$tls?path=/vless&security=tls&encryption=none&type=ws#${user}"
-vlesslink2="vless://${uuid}@${domain}:$none?path=/vless&encryption=none&type=ws#${user}"
-vlesslink3="vless://${uuid}@${domain}:$tls?mode=gun&security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=bug.com#${user}"
+vlesslink1="vless://${uuid}@bug.com:443?path=/vless&security=tls&host=${domain}&encryption=none&type=ws&sni=${domain}#${user}"
+vlesslink2="vless://${uuid}@${domain}:80?path=/vless&encryption=none&type=ws&host=${domain}#${user}"
+vlesslink3="vless://${uuid}@${domain}:443?mode=gun&security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=bug.com#${user}"
 systemctl restart xray
 clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vless.log
@@ -53,8 +53,8 @@ echo -e "\E[44;1;39m        Vless Account        \E[0m" | tee -a /etc/log-create
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vless.log
 echo -e "Remarks        : ${user}" | tee -a /etc/log-create-vless.log
 echo -e "Domain         : ${domain}" | tee -a /etc/log-create-vless.log
-echo -e "Port TLS       : $tls" | tee -a /etc/log-create-vless.log
-echo -e "Port none TLS  : $none" | tee -a /etc/log-create-vless.log
+echo -e "Port TLS       : 443, 8443" | tee -a /etc/log-create-vless.log
+echo -e "Port none TLS  : 80, 8880" | tee -a /etc/log-create-vless.log
 echo -e "id             : ${uuid}" | tee -a /etc/log-create-vless.log
 echo -e "Encryption     : none" | tee -a /etc/log-create-vless.log
 echo -e "Network        : ws" | tee -a /etc/log-create-vless.log
@@ -90,9 +90,9 @@ sed -i '/#vless$/a\#& '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 sed -i '/#vlessgrpc$/a\#& '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-vlesslink1="vless://${uuid}@${domain}:$tls?path=/vless&security=tls&encryption=none&type=ws#${user}"
-vlesslink2="vless://${uuid}@${domain}:$none?path=/vless&encryption=none&type=ws#${user}"
-vlesslink3="vless://${uuid}@${domain}:$tls?mode=gun&security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=bug.com#${user}"
+vlesslink1="vless://${uuid}@bug.com:443?path=/vless&security=tls&host=${domain}&encryption=none&type=ws&sni=${domain}#${user}"
+vlesslink2="vless://${uuid}@${domain}:80?path=/vless&encryption=none&type=ws&host=${domain}#${user}"
+vlesslink3="vless://${uuid}@${domain}:443?mode=gun&security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=bug.com#${user}"
 systemctl restart xray
 clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
@@ -100,8 +100,8 @@ echo -e "\E[44;1;39m       Trial Vless      \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
-echo -e "Port TLS       : $tls"
-echo -e "Port none TLS  : $none"
+echo -e "Port TLS       : 443, 8443"
+echo -e "Port none TLS  : 80, 8880"
 echo -e "Port gRPC      : $tls"
 echo -e "ID             : ${uuid}"
 echo -e "Encryption     : none"
