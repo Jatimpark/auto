@@ -436,7 +436,7 @@ sed -i '$ i}' /etc/nginx/conf.d/xray.conf
 sed -i '$ ilocation = /servlets/mms' /etc/nginx/conf.d/xray.conf
 sed -i '$ i{' /etc/nginx/conf.d/xray.conf
 sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/xray.conf
-sed -i '$ iproxy_pass http://127.0.0.1:23456;' /etc/nginx/conf.d/xray.conf
+sed -i '$ iproxy_pass http://127.0.0.1:23457;' /etc/nginx/conf.d/xray.conf
 sed -i '$ iproxy_http_version 1.1;' /etc/nginx/conf.d/xray.conf
 sed -i '$ iproxy_set_header X-Real-IP \$remote_addr;' /etc/nginx/conf.d/xray.conf
 sed -i '$ iproxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;' /etc/nginx/conf.d/xray.conf
@@ -533,9 +533,9 @@ systemctl restart runn
 
 cd /usr/bin/
 # vmess
-wget -O m-vmess "https://raw.githubusercontent.com/Jatimpark/auto/master/xray/m-vmess.sh" && chmod +x m-vmess
-wget -O m-vless "https://raw.githubusercontent.com/Jatimpark/auto/master/xray/m-vless.sh" && chmod +x m-vless
-wget -O m-tr "https://raw.githubusercontent.com/givpn/AutoScriptXray/master/xray/m-tr.sh" && chmod +x m-tr
+wget -O m-vmess "https://raw.githubusercontent.com/Jatimpark/auto/main/xray/m-vmess.sh" && chmod +x m-vmess
+wget -O m-vless "https://raw.githubusercontent.com/Jatimpark/auto/main/xray/m-vless.sh" && chmod +x m-vless
+wget -O m-tr "https://raw.githubusercontent.com/Jatimpark/auto/main/xray/m-tr.sh" && chmod +x m-tr
 
 sleep 0.5
 yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
