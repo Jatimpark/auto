@@ -5,8 +5,8 @@ let vla=$vlx/2
 vmc=$(grep -c -E "^### " "/etc/xray/config.json")
 let vma=$vmc/2
 ssh1="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
-trx=$(grep -c -E "^#! " "/etc/xray/config.json")
-let tra=$trx/2
+#trx=$(grep -c -E "^#! " "/etc/xray/config.json")
+#let tra=$trx/2
 #ssx=$(grep -c -E "^## " "/etc/xray/config.json")
 #let ssa=$ssx/2
 
@@ -111,10 +111,10 @@ echo -e " ${BICyan}╭═══════════════════�
 echo -e "${BICyan} │                    ${NC}SSH     ${RED}: ${ORANGE}$ssh1      ${NC} "
 echo -e "${BICyan} │                    ${NC}VMESS   ${RED}: ${ORANGE}$vma     ${NC} "
 echo -e "${BICyan} │                    ${NC}VLESS   ${RED}: ${ORANGE}$vla     ${NC} "
-echo -e "${BICyan} │                    ${NC}TROJAN  ${RED}: ${ORANGE}$tra     ${NC} "
+#echo -e "${BICyan} │                    ${NC}TROJAN  ${RED}: ${ORANGE}$tra     ${NC} "
 echo -e " ${BICyan}╰═════════════════════════════════════════════════════╯${NC}"
 echo -e "${BICyan} ┌─────────────────────────────────────────────────────┐${NC}"
-echo -e "    ${NC} SSH ${RED}: $ressh"" ${NC} NGINX ${RED}: $resngx"" ${NC}  XRAY ${RED}: $resv2r"" ${NC} TROJAN ${RED}: $resv2r"
+echo -e "          ${NC} SSH ${RED}: $ressh"" ${NC} NGINX ${RED}: $resngx"" ${NC}  XRAY ${RED}: $resv2r"
 echo -e "  ${NC}    STUNNEL4 ${RED}: $status_stunnel" "${NC} DROPBEAR ${RED}: $resdbr" "${NC} SSH-WS ${RED}: $ressshws"
 echo -e " ${BICyan}└─────────────────────────────────────────────────────┘${NC}"
 echo -e "$BICyan   ┌─────────────────────────────────────────────────┐${NC}"
@@ -124,7 +124,7 @@ echo -e " ${BICyan}╭═══════════════════�
 echo -e "${BICyan} │    ${ICyan}[${ORANGE}01${ICyan}]${NC} • SSH/WS     "   "${BICyan}│    ${ICyan}[${ORANGE}06${ICyan}]${NC} • BACKUP            ${BICyan}│${NC}   "
 echo -e "${BICyan} │    ${ICyan}[${ORANGE}02${ICyan}]${NC} • VMESS      "  "${BICyan}│    ${ICyan}[${ORANGE}07${ICyan}]${NC} • GOTOP X RAM       ${BICyan}│${NC}"
 echo -e "${BICyan} │    ${ICyan}[${ORANGE}03${ICyan}]${NC} • VLESS      "   "${BICyan}│    ${ICyan}[${ORANGE}08${ICyan}]${NC} • INFO RUN          ${BICyan}│  ${NC} "
-echo -e "${BICyan} │    ${ICyan}[${ORANGE}04${ICyan}]${NC} • TROJAN     "  "${BICyan}│    ${ICyan}[${ORANGE}09${ICyan}] ${NC}• MENU SYSTEM       ${BICyan}│ ${NC}      "
+echo -e "${BICyan} │    ${ICyan}[${ORANGE}04${ICyan}]${NC} • REBOT     "     "${BICyan} │    ${ICyan}[${ORANGE}09${ICyan}] ${NC}• MENU SYSTEM       ${BICyan}│ ${NC}      "
 echo -e "${BICyan} │    ${ICyan}[${ORANGE}05${ICyan}]${NC} • INFO PORT  " "${BICyan}│    ${ICyan}[${ORANGE}10${ICyan}]${NC} • EXIT              ${BICyan}│${NC}   "
 echo -e " ${BICyan}╰═════════════════════════════════════════════════════╯${NC}"
 echo -e "${BICyan} ┌─────────────────────────────────────────────────────┐${NC}"
@@ -141,7 +141,7 @@ case $opt in
 1) clear ; m-ssh ;;
 2) clear ; m-vmess ;;
 3) clear ; m-vless ;;
-4) clear ; m-tr ;;
+4) clear ; reboot ;;
 5) clear ; nano log-install.txt ;;
 6) clear ; menu-backup ;;
 7) clear ; gotop ;;
