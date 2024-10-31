@@ -6,7 +6,7 @@ DOMAIN=aryablitar.filegear-sg.me
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c4)
 SUB_DOMAIN=xray-${sub}.aryablitar.filegear-sg.me
 CF_ID=lahseta19@gmail.com
-CF_KEY=641efc1ac85cd3f401f639df955ec5b696c8c
+CF_KEY=3f485e550288defa9d0e97039eab598de1c58
 set -euo pipefail
 IP=$(wget -qO- ifconfig.me);
 echo "Updating DNS for ${SUB_DOMAIN}..."
