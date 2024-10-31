@@ -139,9 +139,9 @@ read -p " Select menu : " opt
 echo -e ""
 case $opt in
 1) clear ; m-ssh ;;
-2) clear ; menu-vmess ;;
-3) clear ; menu-vless ;;
-4) clear ; menu-tr ;;
+2) clear ; m-vmess ;;
+3) clear ; m-vless ;;
+4) clear ; m-tr ;;
 5) clear ; nano log-install.txt ;;
 6) clear ; menu-backup ;;
 7) clear ; gotop ;;
