@@ -21,7 +21,7 @@ yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
 green() { echo -e "\\033[32;1m${*}\\033[0m"; }
 red() { echo -e "\\033[31;1m${*}\\033[0m"; }
 # domain random
-CDN="https://raw.githubusercontent.com/Jatimpark/auto/master/ssh"
+CDN="https://raw.githubusercontent.com/Jatimpark/auto/main/ssh"
 cd /root
 #System version number
 if [ "${EUID}" -ne 0 ]; then
@@ -168,22 +168,22 @@ echo -e "┌──────────────────────�
 echo -e " \E[42;1;37m           >>> Install Ssh Vpn <<<          \E[0m$NC"
 echo -e "└─────────────────────────────────────────┘"
 sleep 1
-wget https://raw.githubusercontent.com/Jatimpark/auto/master/ssh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
+wget https://raw.githubusercontent.com/Jatimpark/auto/main/ssh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 echo -e "┌─────────────────────────────────────────┐"
 echo -e " \E[42;1;37m           >>> Install Vray <<<          \E[0m$NC"
 echo -e "└─────────────────────────────────────────┘"
 sleep 1
-wget https://raw.githubusercontent.com/Jatimpark/auto/master/xray/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
+wget https://raw.githubusercontent.com/Jatimpark/auto/main/xray/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
 echo -e "┌─────────────────────────────────────────┐"
 echo -e " \E[42;1;37m           >>> Install Backup <<<          \E[0m$NC"
 echo -e "└─────────────────────────────────────────┘"
 sleep 1
-wget https://raw.githubusercontent.com/Jatimpark/auto/master/backup/set-br.sh && chmod +x set-br.sh && ./set-br.sh
+wget https://raw.githubusercontent.com/Jatimpark/auto/main/backup/set-br.sh && chmod +x set-br.sh && ./set-br.sh
 echo -e "┌─────────────────────────────────────────┐"
 echo -e " \E[42;1;37m           >>> Install Wsoket <<<          \E[0m$NC"
 echo -e "└─────────────────────────────────────────┘"
 sleep 1
-wget https://raw.githubusercontent.com/Jatimpark/auto/master/sshws/insshws.sh && chmod +x insshws.sh && ./insshws.sh
+wget https://raw.githubusercontent.com/Jatimpark/auto/main/sshws/insshws.sh && chmod +x insshws.sh && ./insshws.sh
 clear
 cat> /root/.profile << END
 # ~/.profile: executed by Bourne-compatible login shells.
@@ -222,7 +222,7 @@ if [ ! -f "/etc/log-create-shadowsocks.log" ]; then
 echo "Log Shadowsocks Account " > /etc/log-create-shadowsocks.log
 fi
 history -c
-serverV=$( curl -sS https://raw.githubusercontent.com/Jatimpark/auto/master/menu/versi  )
+serverV=$( curl -sS https://raw.githubusercontent.com/Jatimpark/auto/main/menu/versi  )
 echo $serverV > /opt/.ver
 aureb=$(cat /home/re_otm)
 b=11
