@@ -517,6 +517,9 @@ sed -i '$ igrpc_set_header Host \$http_host;' /etc/nginx/conf.d/xray.conf
 sed -i '$ igrpc_pass grpc://127.0.0.1:30310;' /etc/nginx/conf.d/xray.conf
 sed -i '$ i}' /etc/nginx/conf.d/xray.conf
 
+#instal bbr
+wget https://raw.githubusercontent.com/Jatimpark/auto/master/xray/bbr.sh && chmod +x bbr.sh && ./bbr.sh
+
 echo -e "$yell[SERVICE]$NC Restart All service"
 systemctl daemon-reload
 sleep 0.5
