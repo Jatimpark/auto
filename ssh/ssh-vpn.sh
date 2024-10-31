@@ -133,13 +133,13 @@ apt -y install nginx
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/Jatimpark/auto/master/ssh/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/Jatimpark/auto/main/ssh/nginx.conf"
 mkdir -p /home/vps/public_html
 /etc/init.d/nginx restart
 
 # install badvpn
 cd
-wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/Jatimpark/auto/master/ssh/newudpgw"
+wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/Jatimpark/auto/main/ssh/newudpgw"
 chmod +x /usr/bin/badvpn-udpgw
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500' /etc/rc.local
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500' /etc/rc.local
@@ -253,7 +253,7 @@ rm -fr /etc/issue.net
 rm -fr /etc/issue.net.save
 sleep 1
 echo -e "[ ${green}INFO$NC ] Settings banner"
-wget -q -O /etc/issue.net "https://raw.githubusercontent.com/Jatimpark/auto/master/main/ssh/issue.net"
+wget -q -O /etc/issue.net "https://raw.githubusercontent.com/Jatimpark/auto/main/main/ssh/issue.net"
 chmod +x /etc/issue.net
 echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
@@ -278,26 +278,26 @@ netfilter-persistent reload
 # download script
 cd /usr/bin
 # menu
-wget -O menu "https://raw.githubusercontent.com/Jatimpark/auto/master/menu/menu.sh"
-wget -O m-vmess "https://raw.githubusercontent.com/Jatimpark/auto/master/menu/m-vmess.sh"
-wget -O m-vless "https://raw.githubusercontent.com/Jatimpark/auto/master/menu/m-vless.sh"
-wget -O running "https://raw.githubusercontent.com/Jatimpark/auto/master/menu/running.sh"
-wget -O clearcache "https://raw.githubusercontent.com/Jatimpark/auto/master/menu/clearcache.sh"
-wget -O m-tr "https://raw.githubusercontent.com/Jatimpark/auto/master/menu/m-tr.sh"
+wget -O menu "https://raw.githubusercontent.com/Jatimpark/auto/main/menu/menu.sh"
+wget -O m-vmess "https://raw.githubusercontent.com/Jatimpark/auto/main/menu/m-vmess.sh"
+wget -O m-vless "https://raw.githubusercontent.com/Jatimpark/auto/main/menu/m-vless.sh"
+wget -O running "https://raw.githubusercontent.com/Jatimpark/auto/main/menu/running.sh"
+wget -O clearcache "https://raw.githubusercontent.com/Jatimpark/auto/main/menu/clearcache.sh"
+wget -O m-tr "https://raw.githubusercontent.com/Jatimpark/auto/main/menu/m-tr.sh"
 
 # menu ssh ovpn
-wget -O m-ssh "https://raw.githubusercontent.com/Jatimpark/auto/master/menu/m-ssh.sh"
-wget -O tendang "https://raw.githubusercontent.com/Jatimpark/auto/master/master/ssh/tendang.sh"
+wget -O m-ssh "https://raw.githubusercontent.com/Jatimpark/auto/main/menu/m-ssh.sh"
+wget -O tendang "https://raw.githubusercontent.com/Jatimpark/auto/main/master/ssh/tendang.sh"
 
 # menu system
-wget -O m-system "https://raw.githubusercontent.com/Jatimpark/auto/master/menu/m-system.sh"
-wget -O addhost "https://raw.githubusercontent.com/Jatimpark/auto/master/menu/addhost.sh"
-wget -O certv2ray "https://raw.githubusercontent.com/Jatimpark/auto/master/xray/certv2ray.sh"
-wget -O speedtest "https://raw.githubusercontent.com/Jatimpark/auto/master/ssh/speedtest_cli.py"
-wget -O auto-reboot "https://raw.githubusercontent.com/Jatimpark/auto/master/menu/auto-reboot.sh"
-wget -O restart "https://raw.githubusercontent.com/Jatimpark/auto/master/menu/restart.sh"
-wget -O bw "https://raw.githubusercontent.com/Jatimpark/auto/master/menu/bw.sh"
-wget -O xp "https://raw.githubusercontent.com/Jatimpark/auto/master/ssh/xp.sh"
+wget -O m-system "https://raw.githubusercontent.com/Jatimpark/auto/main/menu/m-system.sh"
+wget -O addhost "https://raw.githubusercontent.com/Jatimpark/auto/main/menu/addhost.sh"
+wget -O certv2ray "https://raw.githubusercontent.com/Jatimpark/auto/main/xray/certv2ray.sh"
+wget -O speedtest "https://raw.githubusercontent.com/Jatimpark/auto/main/ssh/speedtest_cli.py"
+wget -O auto-reboot "https://raw.githubusercontent.com/Jatimpark/auto/main/menu/auto-reboot.sh"
+wget -O restart "https://raw.githubusercontent.com/Jatimpark/auto/main/menu/restart.sh"
+wget -O bw "https://raw.githubusercontent.com/Jatimpark/auto/main/menu/bw.sh"
+wget -O xp "https://raw.githubusercontent.com/Jatimpark/auto/main/ssh/xp.sh"
 
 chmod +x menu
 chmod +x m-vmess
