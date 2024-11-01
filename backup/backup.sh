@@ -1,16 +1,4 @@
 #!/bin/bash
-# ==========================================
-# Color
-RED='\033[0;31m'
-NC='\033[0m'
-GREEN='\033[0;32m'
-ORANGE='\033[0;33m'
-BLUE='\033[0;34m'
-PURPLE='\033[0;35m'
-CYAN='\033[0;36m'
-LIGHT='\033[0;37m'
-# ==========================================
-# Getting
 
 clear
 IP=$(wget -qO- ipinfo.io/ip);
@@ -28,11 +16,16 @@ clear
 echo "Mohon Menunggu , Proses Backup sedang berlangsung !!"
 rm -rf /root/backup
 mkdir /root/backup
-cp /etc/passwd backup/
-cp /etc/group backup/
-cp -r /var/lib/ipvps.conf/ backup/ipvps.conf
-cp -r /etc/xray backup/xray
-cp -r /home/vps/public_html backup/public_html
+cp -r /root/.acme.sh /root/backup/ &> /dev/null
+cp /etc/passwd /root/backup/ &> /dev/null
+cp /etc/group /root/backup/ &> /dev/null
+cp /etc/shadow /root/backup/ &> /dev/null
+cp /etc/gshadow /root/backup/ &> /dev/null
+#cp /etc/ppp/chap-secrets /root/backup/chap-secrets &> /dev/null
+#cp /etc/ipsec.d/passwd /root/backup/passwd1 &> /dev/null
+cp -r /var/lib/ipvps.conf/ /root/backup/ipvps.conf &> /dev/null
+cp -r /etc/xray /root/backup/xray &> /dev/null
+#cp -r /home/vps/public_html /root/backup/public_html &> /dev/null
 cd /root
 zip -r $IP-$date.zip backup > /dev/null 2>&1
 rclone copy /root/$IP-$date.zip dr:backup/
@@ -40,7 +33,7 @@ url=$(rclone link dr:backup/$IP-$date.zip)
 id=(`echo $url | grep '^https' | cut -d'=' -f2`)
 link="https://drive.google.com/u/4/uc?id=${id}&export=download"
 echo -e "
-Detail Backup 
+Detail Backup Arya Blitar
 ==================================
 IP VPS        : $IP
 Link Backup   : $link
@@ -51,11 +44,13 @@ rm -rf /root/backup
 rm -r /root/$IP-$date.zip
 clear
 echo -e "
-Detail Backup 
+Detail Backup Arya Blitar
 ==================================
 IP VPS        : $IP
 Link Backup   : $link
 Tanggal       : $date
 ==================================
 "
-echo "Silahkan cek Kotak Masuk $email"
+echo
+read -n 1 -s -r -p "   Press any key to back on menu"
+menu
