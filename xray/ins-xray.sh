@@ -136,7 +136,28 @@ cat > /etc/xray/config.json << END
           }
         }
      },
-     {    
+     {
+        "listen": "127.0.0.1",
+    "port": "30310",
+    "protocol": "shadowsocks",
+    "settings": {
+        "clients": [
+          {
+             "method": "aes-128-gcm",
+             "password": "${uuid}"
+#ssgrpc
+           }
+         ],
+           "network": "tcp,udp"
+      },
+    "streamSettings":{
+     "network": "grpc",
+        "grpcSettings": {
+           "serviceName": "ss-grpc"
+          }
+       }
+    }	
+  ],
   "outbounds": [
     {
       "protocol": "freedom",
@@ -310,8 +331,7 @@ systemctl enable runn
 systemctl restart runn
 
 cd /usr/bin/
-# vmess
-wget -O m-vmess "https://raw.githubusercontent.com/Jatimpark/auto/master/xray/m-vmess.sh" && chmod +x m-vmess
+wget -O m-vmess "https://raw.githubusercontent.com/Jatimpark/auto/main/menu/m-vmess.sh" && chmod +x m-vmess
 
 sleep 0.5
 yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
