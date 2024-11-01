@@ -58,15 +58,14 @@ case $Restart in
                 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
                 echo ""
                 read -n 1 -s -r -p "Press any key to back on system menu"
-                restart
+                menu
                 ;;                                                                         
                 2)
                 menu
-                exit
                 ;;
                 x)
                 clear
-                exit
+                menu
                 ;;
-                *) echo -e "" ; echo "Anda salah tekan" ; sleep 1 ; restart ;;               
+                *) echo -e "" ; echo "Anda salah tekan" ; sleep 1 ; menu ;;               
         esac
