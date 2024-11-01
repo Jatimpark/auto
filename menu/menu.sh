@@ -1,7 +1,7 @@
 #!/bin/bash
 
-vlx=$(grep -c -E "^#& " "/etc/xray/config.json")
-let vla=$vlx/2
+#vlx=$(grep -c -E "^#& " "/etc/xray/config.json")
+#let vla=$vlx/2
 vmc=$(grep -c -E "^### " "/etc/xray/config.json")
 let vma=$vmc/2
 ssh1="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
@@ -110,7 +110,7 @@ echo -e " ${BICyan}└───────────────────�
 echo -e " ${BICyan}╭═════════════════════════════════════════════════════╮${NC}"
 echo -e "${BICyan} │                    ${NC}SSH     ${RED}: ${ORANGE}$ssh1      ${NC} "
 echo -e "${BICyan} │                    ${NC}VMESS   ${RED}: ${ORANGE}$vma     ${NC} "
-echo -e "${BICyan} │                    ${NC}VLESS   ${RED}: ${ORANGE}$vla     ${NC} "
+#echo -e "${BICyan} │                    ${NC}VLESS   ${RED}: ${ORANGE}$vla     ${NC} "
 #echo -e "${BICyan} │                    ${NC}TROJAN  ${RED}: ${ORANGE}$tra     ${NC} "
 echo -e " ${BICyan}╰═════════════════════════════════════════════════════╯${NC}"
 echo -e "${BICyan} ┌─────────────────────────────────────────────────────┐${NC}"
@@ -123,7 +123,7 @@ echo -e "$BICyan   └───────────────────�
 echo -e " ${BICyan}╭═════════════════════════════════════════════════════╮${NC}"
 echo -e "${BICyan} │    ${ICyan}[${ORANGE}01${ICyan}]${NC} • SSH/WS     "   "${BICyan}│    ${ICyan}[${ORANGE}06${ICyan}]${NC} • BACKUP            ${BICyan}│${NC}   "
 echo -e "${BICyan} │    ${ICyan}[${ORANGE}02${ICyan}]${NC} • VMESS      "  "${BICyan}│    ${ICyan}[${ORANGE}07${ICyan}]${NC} • GOTOP X RAM       ${BICyan}│${NC}"
-echo -e "${BICyan} │    ${ICyan}[${ORANGE}03${ICyan}]${NC} • VLESS      "   "${BICyan}│    ${ICyan}[${ORANGE}08${ICyan}]${NC} • INFO RUN          ${BICyan}│  ${NC} "
+echo -e "${BICyan} │    ${ICyan}[${ORANGE}03${ICyan}]${NC} • DOMAIN     "   "${BICyan}│    ${ICyan}[${ORANGE}08${ICyan}]${NC} • INFO RUN          ${BICyan}│  ${NC} "
 echo -e "${BICyan} │    ${ICyan}[${ORANGE}04${ICyan}]${NC} • REBOT     "     "${BICyan} │    ${ICyan}[${ORANGE}09${ICyan}] ${NC}• MENU SYSTEM       ${BICyan}│ ${NC}      "
 echo -e "${BICyan} │    ${ICyan}[${ORANGE}05${ICyan}]${NC} • INFO PORT  " "${BICyan}│    ${ICyan}[${ORANGE}10${ICyan}]${NC} • EXIT              ${BICyan}│${NC}   "
 echo -e " ${BICyan}╰═════════════════════════════════════════════════════╯${NC}"
@@ -140,7 +140,7 @@ echo -e ""
 case $opt in
 1) clear ; m-ssh ;;
 2) clear ; m-vmess ;;
-3) clear ; m-vless ;;
+3) clear ; addhost ;;
 4) clear ; reboot ;;
 5) clear ; nano log-install.txt ;;
 6) clear ; menu-backup ;;

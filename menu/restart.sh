@@ -57,9 +57,9 @@ case $Restart in
                 systemctl restart sshws.service
                 systemctl restart ws-dropbear.service
                 systemctl restart ws-stunnel.service
-                sleep 0.5
-                echo -e "[ \033[32mok\033[0m ] Restarting Trojan Go Service (via systemctl) "
-                sleep 0.5
+                #sleep 0.5
+                #echo -e "[ \033[32mok\033[0m ] Restarting Trojan Go Service (via systemctl) "
+                #sleep 0.5
                 #systemctl restart trojan-go.service 
                 sleep 0.5
                 echo -e "[ \033[32mInfo\033[0m ] ALL Service Restarted"

@@ -51,9 +51,9 @@ CITY=$( curl -s ipinfo.io/city?token=ce3da57536810d )
 # CHEK STATUS
 tls_v2ray_status=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 nontls_v2ray_status=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
-vless_tls_v2ray_status=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
-vless_nontls_v2ray_status=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
-shadowsocks=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
+#vless_tls_v2ray_status=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
+#vless_nontls_v2ray_status=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
+#shadowsocks=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 #trojan_server=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 dropbear_status=$(/etc/init.d/dropbear status | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 stunnel_service=$(/etc/init.d/stunnel4 status | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
@@ -132,11 +132,11 @@ else
 fi
 
 # STATUS SERVICE VLESS HTTPS
-if [[ $vless_tls_v2ray_status == "running" ]]; then
-  status_tls_vless=" ${GREEN}Running${NC} ( No Error )"
-else
-  status_tls_vless="${RED}  Not Running ${NC}  ( Error )${NC}"
-fi
+#if [[ $vless_tls_v2ray_status == "running" ]]; then
+#  status_tls_vless=" ${GREEN}Running${NC} ( No Error )"
+#else
+#  status_tls_vless="${RED}  Not Running ${NC}  ( Error )${NC}"
+#fi
 
 # STATUS SERVICE VLESS HTTP
 if [[ $vless_nontls_v2ray_status == "running" ]]; then
@@ -178,11 +178,11 @@ else
 fi
 
 # STATUS SHADOWSOCKS
-if [[ $shadowsocks == "running" ]]; then 
-   status_shadowsocks=" ${GREEN}Running ${NC}( No Error )${NC}"
-else
-   status_shadowsocks="${RED}  Not Running ${NC}  ( Error )${NC}"
-fi
+#if [[ $shadowsocks == "running" ]]; then 
+#   status_shadowsocks=" ${GREEN}Running ${NC}( No Error )${NC}"
+#else
+# #  status_shadowsocks="${RED}  Not Running ${NC}  ( Error )${NC}"
+#fi
 
 
 
@@ -221,8 +221,8 @@ echo -e "\e[1;32m Crons                \e[0m: $status_cron"
 echo -e "\e[1;32m Vnstat               \e[0m: $status_vnstat"
 echo -e "\e[1;32m XRAYS Vmess TLS      \e[0m: $status_tls_v2ray"
 echo -e "\e[1;32m XRAYS Vmess None TLS \e[0m: $status_nontls_v2ray"
-echo -e "\e[1;32m XRAYS Vless TLS      \e[0m: $status_tls_vless"
-echo -e "\e[1;32m XRAYS Vless None TLS \e[0m: $status_nontls_vless"
+#echo -e "\e[1;32m XRAYS Vless TLS      \e[0m: $status_tls_vless"
+#echo -e "\e[1;32m XRAYS Vless None TLS \e[0m: $status_nontls_vless"
 #echo -e "\e[1;32m XRAYS Trojan         \e[0m: $status_virus_trojan"
 #echo -e "\e[1;32m Shadowsocks          \e[0m: $status_shadowsocks"
 echo -e "\e[1;32m Websocket TLS        \e[0m: $swstls"
