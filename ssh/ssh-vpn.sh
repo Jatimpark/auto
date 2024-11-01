@@ -280,10 +280,10 @@ cd /usr/bin
 # menu
 wget -O menu "https://raw.githubusercontent.com/Jatimpark/auto/main/menu/menu.sh"
 wget -O m-vmess "https://raw.githubusercontent.com/Jatimpark/auto/main/menu/m-vmess.sh"
-wget -O m-vless "https://raw.githubusercontent.com/Jatimpark/auto/main/menu/m-vless.sh"
+#wget -O m-vless "https://raw.githubusercontent.com/Jatimpark/auto/main/menu/m-vless.sh"
 wget -O running "https://raw.githubusercontent.com/Jatimpark/auto/main/menu/running.sh"
 wget -O clearcache "https://raw.githubusercontent.com/Jatimpark/auto/main/menu/clearcache.sh"
-wget -O m-tr "https://raw.githubusercontent.com/Jatimpark/auto/main/menu/m-tr.sh"
+#wget -O m-tr "https://raw.githubusercontent.com/Jatimpark/auto/main/menu/m-tr.sh"
 
 # menu ssh ovpn
 wget -O m-ssh "https://raw.githubusercontent.com/Jatimpark/auto/main/menu/m-ssh.sh"
@@ -301,11 +301,11 @@ wget -O xp "https://raw.githubusercontent.com/Jatimpark/auto/main/ssh/xp.sh"
 
 chmod +x menu
 chmod +x m-vmess
-chmod +x m-vless
+#chmod +x m-vless
 chmod +x m-ssh
 chmod +x running
 chmod +x clearcache
-chmod +x m-tr
+#chmod +x m-tr
 chmod +x tendang
 
 chmod +x m-system
