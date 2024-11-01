@@ -142,7 +142,7 @@ case $opt in
 2) clear ; m-vmess ;;
 3) clear ; addhost ;;
 4) clear ; reboot ;;
-5) clear ; nano log-install.txt ;;
+5) clear ; info ;;
 6) clear ; menu-backup ;;
 7) clear ; gotop ;;
 8) clear ; running ;;
