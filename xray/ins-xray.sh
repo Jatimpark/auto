@@ -1,6 +1,5 @@
 #!/bin/bash
 MYIP=$(wget -qO- ipv4.icanhazip.com);
-echo "Checking VPS"
 clear
 echo -e "
 "
@@ -99,26 +98,6 @@ cat > /etc/xray/config.json << END
     },
    {
      "listen": "127.0.0.1",
-     "port": "14016",
-     "protocol": "vless",
-      "settings": {
-          "decryption":"none",
-            "clients": [
-               {
-                 "id": "${uuid}"                 
-#vless
-             }
-          ]
-       },
-       "streamSettings":{
-         "network": "ws",
-            "wsSettings": {
-                "path": "/vless"
-          }
-        }
-     },
-     {
-     "listen": "127.0.0.1",
      "port": "23456",
      "protocol": "vmess",
       "settings": {
@@ -138,26 +117,6 @@ cat > /etc/xray/config.json << END
         }
      },
     {
-        "listen": "127.0.0.1",
-     "port": "24456",
-        "protocol": "vless",
-        "settings": {
-         "decryption":"none",
-           "clients": [
-             {
-               "id": "${uuid}"
-#vlessgrpc
-             }
-          ]
-       },
-          "streamSettings":{
-             "network": "grpc",
-             "grpcSettings": {
-                "serviceName": "vless-grpc"
-           }
-        }
-     },
-     {
       "listen": "127.0.0.1",
      "port": "31234",
      "protocol": "vmess",
@@ -306,18 +265,6 @@ cat >/etc/nginx/conf.d/xray.conf <<EOF
              root /home/vps/public_html;
         }
 EOF
-sed -i '$ ilocation = /vless' /etc/nginx/conf.d/xray.conf
-sed -i '$ i{' /etc/nginx/conf.d/xray.conf
-sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/xray.conf
-sed -i '$ iproxy_pass http://127.0.0.1:14016;' /etc/nginx/conf.d/xray.conf
-sed -i '$ iproxy_http_version 1.1;' /etc/nginx/conf.d/xray.conf
-sed -i '$ iproxy_set_header X-Real-IP \$remote_addr;' /etc/nginx/conf.d/xray.conf
-sed -i '$ iproxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;' /etc/nginx/conf.d/xray.conf
-sed -i '$ iproxy_set_header Upgrade \$http_upgrade;' /etc/nginx/conf.d/xray.conf
-sed -i '$ iproxy_set_header Connection "upgrade";' /etc/nginx/conf.d/xray.conf
-sed -i '$ iproxy_set_header Host \$http_host;' /etc/nginx/conf.d/xray.conf
-sed -i '$ i}' /etc/nginx/conf.d/xray.conf
-
 sed -i '$ ilocation = /vmess' /etc/nginx/conf.d/xray.conf
 sed -i '$ i{' /etc/nginx/conf.d/xray.conf
 sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/xray.conf
@@ -340,15 +287,6 @@ sed -i '$ iproxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;' /etc/n
 sed -i '$ iproxy_set_header Upgrade \$http_upgrade;' /etc/nginx/conf.d/xray.conf
 sed -i '$ iproxy_set_header Connection "upgrade";' /etc/nginx/conf.d/xray.conf
 sed -i '$ iproxy_set_header Host \$http_host;' /etc/nginx/conf.d/xray.conf
-sed -i '$ i}' /etc/nginx/conf.d/xray.conf
-
-sed -i '$ ilocation ^~ /vless-grpc' /etc/nginx/conf.d/xray.conf
-sed -i '$ i{' /etc/nginx/conf.d/xray.conf
-sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/xray.conf
-sed -i '$ igrpc_set_header X-Real-IP \$remote_addr;' /etc/nginx/conf.d/xray.conf
-sed -i '$ igrpc_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;' /etc/nginx/conf.d/xray.conf
-sed -i '$ igrpc_set_header Host \$http_host;' /etc/nginx/conf.d/xray.conf
-sed -i '$ igrpc_pass grpc://127.0.0.1:24456;' /etc/nginx/conf.d/xray.conf
 sed -i '$ i}' /etc/nginx/conf.d/xray.conf
 
 sed -i '$ ilocation ^~ /vmess-grpc' /etc/nginx/conf.d/xray.conf
@@ -374,12 +312,10 @@ systemctl restart runn
 cd /usr/bin/
 # vmess
 wget -O m-vmess "https://raw.githubusercontent.com/Jatimpark/auto/master/xray/m-vmess.sh" && chmod +x m-vmess
-wget -O m-vless "https://raw.githubusercontent.com/Jatimpark/auto/master/xray/m-vless.sh" && chmod +x m-vless
 
 sleep 0.5
 yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
 yellow "xray/Vmess"
-yellow "xray/Vless"
 
 mv /root/domain /etc/xray/ 
 if [ -f /root/scdomain ];then
