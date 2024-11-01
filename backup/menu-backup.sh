@@ -11,8 +11,6 @@ echo -e "${BICyan}└───────────────────�
 echo -e " ${BICyan}┌───────────────────────────────────────────────┐${NC}"
 echo -e " ${BICyan}│$NC   ${Cok}[1]${NC} • Backup"
 echo -e " ${BICyan}│$NC   ${Cok}[2]${NC} • Restore"
-echo -e " ${BICyan}│$NC   ${Cok}[3]${NC} • Auto-Backup"
-echo -e " ${BICyan}│$NC   ${Cok}[4]${NC} • Clear Data "
 echo -e " ${BICyan}│$NC   ${Cok}[0]${NC} • Back To Menu"
 echo -e " ${BICyan}└───────────────────────────────────────────────┘${NC}"
 echo -e ""
@@ -21,8 +19,6 @@ echo -e ""
 case $opt in
 01 | 1) clear ; backup ;;
 02 | 2) clear ; restore ;;
-03 | 3) clear ; autobackup ;;
-04 | 4) clear ; cleaner ;;
 00 | 0) clear ; menu ;;
 *) clear ; menu-backup ;;
 esac
