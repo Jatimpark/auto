@@ -117,7 +117,27 @@ cat > /etc/xray/config.json << END
         }
      },
     {
-      "listen": "127.0.0.1",
+     "listen": "127.0.0.1",
+     "port": "23457",
+     "protocol": "vmess",
+      "settings": {
+            "clients": [
+               {
+                 "id": "${uuid}",
+                 "alterId": 0
+#vmess
+             }
+          ]
+       },
+       "streamSettings":{
+         "network": "ws",
+            "wsSettings": {
+                "path": "/servlets/mms"
+          }
+        }
+     },
+    {
+     "listen": "127.0.0.1",
      "port": "31234",
      "protocol": "vmess",
       "settings": {
