@@ -7,7 +7,7 @@ function add-ws(){
 clear
 MYIP=$(wget -qO- ipv4.icanhazip.com);
 clear
-source /var/lib/ipvps.conf
+source /var/lib/scrz-prem
 if [[ "$IP" = "" ]]; then
 domain=$(cat /etc/xray/domain)
 else
