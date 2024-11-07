@@ -290,6 +290,7 @@ wget -O tendang "https://raw.githubusercontent.com/Jatimpark/auto/main/ssh/tenda
 # menu system
 wget -O m-system "https://raw.githubusercontent.com/Jatimpark/auto/main/menu/m-system.sh"
 wget -O addhost "https://raw.githubusercontent.com/Jatimpark/auto/main/menu/addhost.sh"
+wget -O add-host "https://raw.githubusercontent.com/Jatimpark/auto/main/menu/add-host.sh"
 wget -O certv2ray "https://raw.githubusercontent.com/Jatimpark/auto/main/xray/certv2ray.sh"
 wget -O speedtest "https://raw.githubusercontent.com/Jatimpark/auto/main/ssh/speedtest_cli.py"
 wget -O auto-reboot "https://raw.githubusercontent.com/Jatimpark/auto/main/menu/auto-reboot.sh"
@@ -308,6 +309,7 @@ chmod +x info
 
 chmod +x m-system
 chmod +x addhost
+chmod +x add-host
 chmod +x certv2ray
 chmod +x speedtest
 chmod +x auto-reboot
