@@ -5,15 +5,15 @@ rm -rf /etc/xray/domain
 rm -rf /etc/v2ray/domain
 rm -rf /etc/xray/scdomain
 rm -rf /etc/v2ray/scdomain
-rm -rf /var/lib/ipvps.conf
+rm -rf /var/lib/scrz-prem
 red='\e[1;31m'
 green='\e[0;32m'
 yell='\e[1;33m'
 tyblue='\e[1;36m'
 BRed='\e[1;31m'
 BGreen='\e[1;32m'
-BYellow='\e[1;33m'
-BBlue='\e[1;34m'
+BYellow='\e[1;35m'
+BBlue='\e[1;32m'
 NC='\e[0m'
 purple() { echo -e "\\033[35;1m${*}\\033[0m"; }
 tyblue() { echo -e "\\033[36;1m${*}\\033[0m"; }
@@ -48,11 +48,11 @@ touch /etc/xray/scdomain
 touch /etc/v2ray/scdomain
 
 
-echo -e "[ ${BBlue}NOTES${NC} ] Before we go.. "
+echo -e "[ ${BBlue}NOTES${NC} ] Sebelum kita pergi.. "
 sleep 0.5
-echo -e "[ ${BBlue}NOTES${NC} ] I need check your headers first.."
+echo -e "[ ${BBlue}NOTES${NC} ] Saya perlu memeriksa header Anda terlebih dahulu..."
 sleep 0.5
-echo -e "[ ${BGreen}INFO${NC} ] Checking headers"
+echo -e "[ ${BGreen}INFO${NC} ] Memeriksa header"
 sleep 0.5
 totet=`uname -r`
 REQUIRED_PKG="linux-headers-$totet"
@@ -60,7 +60,7 @@ PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG|grep "install ok
 echo Checking for $REQUIRED_PKG: $PKG_OK
 if [ "" = "$PKG_OK" ]; then
   sleep 0.5
-  echo -e "[ ${BRed}WARNING${NC} ] Try to install ...."
+  echo -e "[ ${BRed}WARNING${NC} ] Cobalah untuk menginstal ...."
   echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
   apt-get --yes install $REQUIRED_PKG
   sleep 0.5
@@ -74,13 +74,13 @@ if [ "" = "$PKG_OK" ]; then
   sleep 0.5
   echo ""
   sleep 0.5
-  echo -e "[ ${BBlue}NOTES${NC} ] After this"
+  echo -e "[ ${BBlue}NOTES${NC} ] Setelah ini"
   sleep 0.5
-  echo -e "[ ${BBlue}NOTES${NC} ] Then run this script again"
+  echo -e "[ ${BBlue}NOTES${NC} ] Kemudian jalankan skrip ini lagi"
   echo -e "[ ${BBlue}NOTES${NC} ] enter now"
   read
 else
-  echo -e "[ ${BGreen}INFO${NC} ] Oke installed"
+  echo -e "[ ${BGreen}INFO${NC} ] Oke terpasang"
 fi
 
 ttet=`uname -r`
@@ -101,25 +101,25 @@ ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 sysctl -w net.ipv6.conf.all.disable_ipv6=1 >/dev/null 2>&1
 sysctl -w net.ipv6.conf.default.disable_ipv6=1 >/dev/null 2>&1
 
-echo -e "[ ${BGreen}INFO${NC} ] Preparing the install file"
+echo -e "[ ${BGreen}INFO${NC} ] Mempersiapkan file instalasi"
 apt install git curl -y >/dev/null 2>&1
 apt install python -y >/dev/null 2>&1
-echo -e "[ ${BGreen}INFO${NC} ] Aight good ... installation file is ready"
+echo -e "[ ${BGreen}INFO${NC} ] Oke bagus... file instalasi sudah siap"
 sleep 0.5
-echo -ne "[ ${BGreen}INFO${NC} ] Check permission : "
+echo -ne "[ ${BGreen}INFO${NC} ] Periksa izin : "
 
-echo -e "$BGreen Permission Accepted!$NC"
+echo -e "$BGreen Izin Diterima!$NC"
 sleep 2
 
 mkdir -p /var/lib/ >/dev/null 2>&1
-echo "IP=" >> /var/lib/ipvps.conf
+echo "IP=" >> /var/lib/scrz-prem
 
 echo ""
 clear
-    echo -e "$BBlue                     SETUP DOMAIN VPS     $NC"
+    echo -e "$NC                 PENYIAPAN DOMAIN VPS     $NC"
     echo -e "$BYellow----------------------------------------------------------$NC"
-    echo -e "$BGreen 1. Use Domain Random / Gunakan Domain Random $NC"
-    echo -e "$BGreen 2. Choose Your Own Domain / Gunakan Domain Sendiri $NC"
+    echo -e "$NC 1. Gunakan Domain Acak $NC"
+    echo -e "$NC 2. Gunakan Domain Sendiri $NC"
     echo -e "$BYellow----------------------------------------------------------$NC"
     read -rp " Pilih domain yang akan kamu pakai : " dns
 	if test $dns -eq 1; then
@@ -128,7 +128,7 @@ clear
     wget -q -O /root/cf "${CDN}/cf" >/dev/null 2>&1
     chmod +x /root/cf
     bash /root/cf | tee /root/install.log
-    print_success "Domain Random Done"
+    print_success "Domain Acak Done"
 	elif test $dns -eq 2; then
     read -rp "Enter Your Domain : " dom
     echo "$dom" > /root/scdomain
@@ -136,12 +136,12 @@ clear
 	echo "$dom" > /etc/xray/domain
 	echo "$dom" > /etc/v2ray/domain
 	echo "$dom" > /root/domain
-    echo "IP=$dom" > /var/lib/ipvps.conf
+    echo "IP=$dom" > /var/lib/scrz-prem
     else 
-    echo "Not Found Argument"
+    echo "Argumen Tidak Ditemukan"
     exit 1
     fi
-	echo -e "${BGreen}Done!${NC}"
+	echo -e "${BGreen}Selesai!${NC}"
     sleep 2
     clear
     
@@ -161,7 +161,7 @@ rm -f /root/vnstat-2.6.tar.gz >/dev/null 2>&1
 rm -rf /root/vnstat-2.6 >/dev/null 2>&1
 
 yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
-yellow "Main successfully installed..."
+yellow "Utama berhasil diinstal..."
 sleep 3
 clear
 echo -e "┌─────────────────────────────────────────┐"
@@ -247,19 +247,14 @@ echo "   >>> Service & Port"  | tee -a log-install.txt
 echo "   - OpenSSH                  : 22"  | tee -a log-install.txt
 echo "   - SSH Websocket            : 80, 8880" | tee -a log-install.txt
 echo "   - SSH SSL Websocket        : 443, 8443" | tee -a log-install.txt
-echo "   - Stunnel4                 : 445, 777" | tee -a log-install.txt
+echo "   - Stunnel4                 : 445, 447, 777" | tee -a log-install.txt
 echo "   - Dropbear                 : 109, 143" | tee -a log-install.txt
 echo "   - Badvpn                   : 7100-7900" | tee -a log-install.txt
 echo "   - Nginx                    : 81" | tee -a log-install.txt
-echo "   - Vmess WS TLS             : 443" | tee -a log-install.txt
-echo "   - Vless WS TLS             : 443" | tee -a log-install.txt
-echo "   - Trojan WS TLS            : 443" | tee -a log-install.txt
+echo "   - Vmess WS TLS             : 443, 8443" | tee -a log-install.txt
 echo "   - Vmess WS none TLS        : 80, 8880" | tee -a log-install.txt
 echo "   - Vless WS none TLS        : 80, 8880" | tee -a log-install.txt
-echo "   - Trojan WS none TLS       : 80, 8880" | tee -a log-install.txt
-echo "   - Vmess gRPC               : 443" | tee -a log-install.txt
-echo "   - Vless gRPC               : 443" | tee -a log-install.txt
-echo "   - Trojan gRPC              : 443" | tee -a log-install.txt
+echo "   - Vmess gRPC               : 443, 8443" | tee -a log-install.txt
 echo ""
 echo "==================================================================" | tee -a log-install.txt
 echo -e ""
@@ -272,7 +267,7 @@ rm /root/insshws.sh >/dev/null 2>&1
 secs_to_human "$(($(date +%s) - ${start}))" | tee -a log-install.txt
 echo -e "
 "
-echo -ne "[ ${yell}WARNING${NC} ] reboot now ? (y/n)? "
+echo -ne "[ ${yell}PERINGATAN${NC} ] reboot sekarang ? (y/n)? "
 read answer
 if [ "$answer" == "${answer#[Yy]}" ] ;then
 exit 0
