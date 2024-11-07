@@ -17,7 +17,7 @@ portsshws=`cat ~/log-install.txt | grep -w "SSH Websocket" | cut -d: -f2 | awk '
 wsssl=`cat /root/log-install.txt | grep -w "SSH SSL Websocket" | cut -d: -f2 | awk '{print $1}'`
 
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m            SSH Account            \E[0m"
+echo -e "\E[42;1;37m            SSH Account            \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 read -p "Username : " Login
 read -p "Password : " Pass
@@ -43,7 +43,7 @@ PID=`ps -ef |grep -v grep | grep sshws |awk '{print $2}'`
 
 if [[ ! -z "${PID}" ]]; then
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
-echo -e "\E[0;41;36m            SSH Account            \E[0m" | tee -a /etc/log-create-ssh.log
+echo -e "\E[42;1;37m            SSH Account            \E[0m" | tee -a /etc/log-create-ssh.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
 echo -e "Username    : $Login" | tee -a /etc/log-create-ssh.log
 echo -e "Password    : $Pass" | tee -a /etc/log-create-ssh.log
@@ -70,7 +70,7 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
 else
 
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
-echo -e "\E[0;41;36m            SSH Account            \E[0m" | tee -a /etc/log-create-ssh.log
+echo -e "\E[42;1;37m            SSH Account            \E[0m" | tee -a /etc/log-create-ssh.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
 echo -e "Username    : $Login" | tee -a /etc/log-create-ssh.log
 echo -e "Password    : $Pass" | tee -a /etc/log-create-ssh.log
@@ -146,7 +146,7 @@ PID=`ps -ef |grep -v grep | grep sshws |awk '{print $2}'`
 
 if [[ ! -z "${PID}" ]]; then
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m            TRIAL SSH              \E[0m"
+echo -e "\E[42;1;37m            TRIAL SSH              \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Username   : $Login"
 echo -e "Password   : $Pass"
@@ -171,7 +171,7 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
 else
 
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m            TRIAL SSH              \E[0m"
+echo -e "\E[42;1;37m            TRIAL SSH              \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Username   : $Login"
 echo -e "Password   : $Pass"
@@ -204,7 +204,7 @@ clear
 MYIP=$(wget -qO- ipv4.icanhazip.com);
 clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m               RENEW  USER                \E[0m"
+echo -e "\E[42;1;37m               RENEW  USER                \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  
 echo
 read -p "Username : " User
@@ -233,7 +233,7 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
 else
 clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m               RENEW  USER                \E[0m"
+echo -e "\E[42;1;37m               RENEW  USER                \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  
 echo -e ""
 echo -e "   Username Doesnt Exist      "
@@ -251,7 +251,7 @@ clear
 MYIP=$(wget -qO- ipv4.icanhazip.com);
 clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m               DELETE USER                \E[0m"
+echo -e "\E[42;1;37m               DELETE USER                \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  
 echo ""
 read -p "Username SSH to Delete : " Pengguna
@@ -285,7 +285,7 @@ fi
                
 data=( `ps aux | grep -i dropbear | awk '{print $2}'`);
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m         Dropbear User Login       \E[0m"
+echo -e "\E[42;1;37m         Dropbear User Login       \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo "ID  |  Username  |  IP Address";
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
@@ -304,7 +304,7 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
 done
 echo " "
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m          OpenSSH User Login       \E[0m"
+echo -e "\E[42;1;37m          OpenSSH User Login       \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo "ID  |  Username  |  IP Address";
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
@@ -326,7 +326,7 @@ done
 if [ -f "/etc/openvpn/server/openvpn-tcp.log" ]; then
         echo " "
         echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-        echo -e "\E[0;41;36m          OpenVPN TCP User Login         \E[0m"
+        echo -e "\E[42;1;37m          OpenVPN TCP User Login         \E[0m"
         echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
         echo "Username  |  IP Address  |  Connected Since";
         echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
@@ -338,7 +338,7 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
 if [ -f "/etc/openvpn/server/openvpn-udp.log" ]; then
         echo " "
         echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-        echo -e "\E[0;41;36m          OpenVPN UDP User Login         \E[0m"
+        echo -e "\E[42;1;37m          OpenVPN UDP User Login         \E[0m"
         echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
         echo "Username  |  IP Address  |  Connected Since";
         echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
@@ -363,7 +363,7 @@ clear
 MYIP=$(wget -qO- ipv4.icanhazip.com);
 clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m                 MEMBER SSH               \E[0m"
+echo -e "\E[42;1;37m                 MEMBER SSH               \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"      
 echo "USERNAME          EXP DATE          STATUS"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
@@ -397,7 +397,7 @@ MYIP=$(wget -qO- ipv4.icanhazip.com);
 clear
                hariini=`date +%d-%m-%Y`
                echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-               echo -e "\E[0;41;36m               AUTO DELETE                \E[0m"
+               echo -e "\E[42;1;37m               AUTO DELETE                \E[0m"
                echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  
                echo "Thank you for removing the EXPIRED USERS"
                echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  
@@ -455,7 +455,7 @@ sts="${Error}"
 fi
 clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[44;1;39m             AUTOKILL SSH          \E[0m"
+echo -e "\E[42;1;37m             AUTOKILL SSH          \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Status Autokill : $sts        "
 echo -e ""
@@ -551,7 +551,7 @@ clear
 MYIP=$(wget -qO- ipv4.icanhazip.com);
 clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m         CEK USER MULTI SSH        \E[0m"
+echo -e "\E[42;1;37m         CEK USER MULTI SSH        \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 if [ -e "/root/log-limit.txt" ]; then
 echo "User Who Violate The Maximum Limit";
@@ -573,25 +573,23 @@ m-ssh
 }
 clear
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;100;33m           • SSH MENU •            \E[0m"
+echo -e "\E[42;1;37m           • SSH MENU •            \E[0m"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e ""
-echo -e " [\e[36m•1\e[0m] Create SSH & WS Account "
-echo -e " [\e[36m•2\e[0m] Trial SSH & WS Account "
-echo -e " [\e[36m•3\e[0m] Renew SSH & WS Account "
-echo -e " [\e[36m•4\e[0m] Delete SSH & WS Account "
-echo -e " [\e[36m•5\e[0m] Check User Login SSH & WS "
-echo -e " [\e[36m•6\e[0m] List Member SSH & OpenVPN "
-echo -e " [\e[36m•7\e[0m] Delete User Expired SSH & WS "
-echo -e " [\e[36m•8\e[0m] Set up Autokill SSH "
-echo -e " [\e[36m•9\e[0m] Cek Users Who Do Multi Login Multi"
-echo -e " [\e[36m•10\e[0m] Tendang Users Multi Login Multi"
-echo -e " [\e[36m•11\e[0m] User list created Account "
+echo -e " [\e[32m•1\e[0m] Create SSH & WS Account "
+echo -e " [\e[32m•2\e[0m] Trial SSH & WS Account "
+echo -e " [\e[32m•3\e[0m] Renew SSH & WS Account "
+echo -e " [\e[32m•4\e[0m] Delete SSH & WS Account "
+echo -e " [\e[32m•5\e[0m] Check User Login SSH & WS "
+echo -e " [\e[32m•6\e[0m] List Member SSH & OpenVPN "
+echo -e " [\e[32m•7\e[0m] Delete User Expired SSH & WS "
+echo -e " [\e[32m•8\e[0m] Set up Autokill SSH "
+echo -e " [\e[32m•9\e[0m] Cek Users Who Do Multi Login Multi"
+echo -e " [\e[32m•10\e[0m] Tendang Users Multi Login Multi"
+echo -e " [\e[32m•11\e[0m] User list created Account "
 echo -e ""
 echo -e " [\e[31m•0\e[0m] \e[31mBACK TO MENU\033[0m"
 echo -e ""
-echo -e   "Press x or [ Ctrl+C ] • To-Exit"
-echo ""
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e ""
 read -p " Select menu :  "  opt

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+PURPLE='\033[0;34m' 
+BIWhite='\033[1;97m'  
+NC='\033[0;37m' 
 clear
 clear
 clear
@@ -7,7 +10,7 @@ function add-ws(){
 clear
 MYIP=$(wget -qO- ipv4.icanhazip.com);
 clear
-source /var/lib/scrz-prem
+source /var/lib/ipvps.conf
 if [[ "$IP" = "" ]]; then
 domain=$(cat /etc/xray/domain)
 else
@@ -18,7 +21,7 @@ tls="$(cat ~/log-install.txt | grep -w "Vmess WS TLS" | cut -d: -f2|sed 's/ //g'
 none="$(cat ~/log-install.txt | grep -w "Vmess WS none TLS" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\\E[0;41;36m      Add Vmess Account      \E[0m"
+echo -e "\E[42;1;37m      Add Vmess Account      \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 
 		read -rp "User: " -e user
@@ -27,7 +30,7 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
 		if [[ ${CLIENT_EXISTS} == '1' ]]; then
 clear
             echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-            echo -e "\\E[0;41;36m      Add Vmess Account      \E[0m"
+            echo -e "\E[42;1;37m      Add Vmess Account      \E[0m"
             echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 			echo ""
 			echo "A client with the specified name was already created, please choose another name."
@@ -101,7 +104,7 @@ systemctl restart xray > /dev/null 2>&1
 service cron restart > /dev/null 2>&1
 clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vmess.log
-echo -e "\\E[0;41;36m        Vmess Account        \E[0m" | tee -a /etc/log-create-vmess.log
+echo -e "\E[42;1;37m        Vmess Account        \E[0m" | tee -a /etc/log-create-vmess.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vmess.log
 echo -e "Remarks        : ${user}" | tee -a /etc/log-create-vmess.log
 echo -e "Domain         : ${domain}" | tee -a /etc/log-create-vmess.log
@@ -113,7 +116,6 @@ echo -e "alterId        : 0" | tee -a /etc/log-create-vmess.log
 echo -e "Security       : auto" | tee -a /etc/log-create-vmess.log
 echo -e "Network        : ws" | tee -a /etc/log-create-vmess.log
 echo -e "Path           : /vmess" | tee -a /etc/log-create-vmess.log
-echo -e "Path           : /servlets/mms" | tee -a /etc/log-create-vmess.log
 echo -e "ServiceName    : vmess-grpc" | tee -a /etc/log-create-vmess.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vmess.log
 echo -e "Link TLS       : ${vmesslink1}" | tee -a /etc/log-create-vmess.log
@@ -202,7 +204,7 @@ clear
 
 
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m       Trial Mmess      \E[0m"
+echo -e "\E[42;1;37m       Trial Mmess      \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
@@ -214,7 +216,6 @@ echo -e "alterId        : 0"
 echo -e "Security       : auto"
 echo -e "Network        : ws"
 echo -e "Path           : /vmess"
-echo -e "Path           : /servlets/mms"
 echo -e "ServiceName    : vmess-grpc"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Link TLS       : ${vmesslink1}"
@@ -252,7 +253,7 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/xray/config.json")
 	clear
     echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo -e "\E[42;1;37m            Renew Vmess            \E[0m"
-    echo -e "${PURPLE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo ""
   	grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | column -t | sort | uniq
     echo ""
@@ -275,7 +276,7 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/xray/config.json")
     clear
     echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo " XRAY Account Was Successfully Renewed"
-    echo -e "$\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo ""
     echo " Client Name : $user"
     echo " Expired On  : $exp4"
@@ -307,7 +308,7 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/xray/config.json")
 	clear
 	echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo -e "\E[42;1;37m       Delete Vmess Account        \E[0m"
-    echo -e "${PURPLE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo "  User       Expired  " 
 	echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 	grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | column -t | sort | uniq
@@ -484,7 +485,7 @@ vmesslink3="vmess://$(echo $grpc | base64 -w 0)"
 clear
 echo -e ""
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vmess.log
-echo -e "\\E[0;41;36m        Vmess Account        \E[0m" | tee -a /etc/log-create-vmess.log
+echo -e "\E[42;1;37m        Vmess Account        \E[0m" | tee -a /etc/log-create-vmess.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vmess.log
 echo -e "Remarks        : ${user}" | tee -a /etc/log-create-vmess.log
 echo -e "Domain         : ${domain}" | tee -a /etc/log-create-vmess.log
@@ -512,23 +513,20 @@ read -n 1 -s -r -p "Press any key to back on menu"
 m-vmess
 }
 clear
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;100;33m         • VMESS MENU •          \E[0m"
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "${PURPLE}┌─────────────────────────────────────────────────┐${NC}"
+echo -e "${PURPLE}│\E[42;1;37m                    VMESS MENU                   \E[0m"
+echo -e "${PURPLE}└─────────────────────────────────────────────────┘${NC}"
+echo -e "${PURPLE}┌─────────────────────────────────────────────────┐${NC}"
+echo -e "     ${PURPLE}[${BIWhite}1${PURPLE}]${NC} Create Vmess Account     "
+echo -e "     ${PURPLE}[${BIWhite}2${PURPLE}]${NC} Trial Vmess Account     "
+echo -e "     ${PURPLE}[${BIWhite}3${PURPLE}]${NC} Perpanjang Account Vmess     "
+echo -e "     ${PURPLE}[${BIWhite}4${PURPLE}]${NC} Hapus Account Vmess    "
+echo -e "     ${PURPLE}[${BIWhite}5${PURPLE}]${NC} Check User Login Vmess    "
+echo -e "     ${PURPLE}[${BIWhite}6${PURPLE}]${NC} User List Log    "
+echo -e "     ${PURPLE}[${BIWhite}7${PURPLE}]${NC} List Akun Vmess    "
 echo -e ""
-echo -e " [\e[36m•1\e[0m] Create Account Vmess "
-echo -e " [\e[36m•2\e[0m] Trial Account Vmess "
-echo -e " [\e[36m•3\e[0m] Perpanjang Account Vmess "
-echo -e " [\e[36m•4\e[0m] Hapus Account Vmess "
-echo -e " [\e[36m•5\e[0m] Check User Login Vmess "
-echo -e " [\e[36m•6\e[0m] User List Log "
-echo -e " [\e[36m•7\e[0m] User List Akun Vmess "
-echo -e ""
-echo -e " [\e[31m•0\e[0m] \e[31mBACK TO MENU\033[0m"
-echo -e ""
-echo -e   "Press x or [ Ctrl+C ] • To-Exit"
-echo ""
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "     ${PURPLE}[${BIWhite}0${PURPLE}]${NC} Back To Menu     "
+echo -e "${PURPLE}└──────────────────────────────────────────────────┘${NC}"
 echo -e ""
 read -p " Select menu :  "  opt
 echo -e ""
@@ -542,5 +540,5 @@ case $opt in
 7) clear ; user-ws ; exit ;;
 0) clear ; menu ; exit ;;
 x) exit ;;
-*) echo "Anda salah tekan " ; sleep 1 ; m-vmess ;;
+*) echo "Salah Tekan Yank " ; sleep 1 ; m-vmess ;;
 esac
