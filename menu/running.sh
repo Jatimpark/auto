@@ -161,7 +161,7 @@ fi
 if [[ $stunnel_service == "running" ]]; then 
    status_stunnel=" ${GREEN}Running ${NC}( No Error )"
 else
-   status_stunnel="${RED}  Not Running ${NC}  ( Error )}"
+   status_stunnel="${RED}  Not Running ${NC}  ( Error )"
 fi
 # STATUS SERVICE WEBSOCKET TLS
 if [[ $wstls == "running" ]]; then 
@@ -197,7 +197,7 @@ kernelku=$(uname -r)
 Domen="$(cat /etc/xray/domain)"
 echo -e ""
 echo -e "\e[1;33m -------------------------------------------------\e[0m"
-echo -e "\e[1;37m                 SYSTEM INFORMATION               \e[0m"
+echo -e "\E[42;1;37m                 SYSTEM INFORMATION               \e[0m"
 echo -e "\e[1;33m -------------------------------------------------\e[0m"
 echo -e "\e[1;32m Hostname  \e[0m: $HOSTNAME"
 echo -e "\e[1;32m OS Name   \e[0m: $Tipe"
@@ -205,7 +205,7 @@ echo -e "\e[1;32m Total RAM \e[0m: ${totalram} MB"
 echo -e "\e[1;32m Public IP \e[0m: $MYIP"
 echo -e "\e[1;32m Domain    \e[0m: $Domen"
 echo -e "\e[1;33m -------------------------------------------------\e[0m"
-echo -e "\e[1;37m                SERVICE INFORMATION               \e[0m"
+echo -e "\E[42;1;37m                SERVICE INFORMATION               \e[0m"
 echo -e "\e[1;33m -------------------------------------------------\e[0m"
 echo -e "\e[1;32m SSH / TUN            \e[0m: $status_ssh"
 echo -e "\e[1;32m Dropbear             \e[0m: $status_beruangjatuh"
@@ -222,6 +222,9 @@ echo -e "\e[1;32m XRAYS Vmess None TLS \e[0m: $status_nontls_v2ray"
 echo -e "\e[1;32m Websocket TLS        \e[0m: $swstls"
 echo -e "\e[1;32m Websocket None TLS   \e[0m: $swstls"
 echo -e "\e[1;33m -------------------------------------------------\e[0m"
-echo -e "\e[1;37m Wa 081931615811          \e[0m"
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
-echo ""
+echo -e ""
+echo -e "\E[42;1;37m Owner wa.me/6281931615811 ${NC}"
+echo -e ""
+read -n 1 -s -r -p "  Press any key to back on menu"
+menu
+esac
