@@ -52,9 +52,10 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
 echo -e "IP          : $IP" | tee -a /etc/log-create-ssh.log
 echo -e "Host        : $domen" | tee -a /etc/log-create-ssh.log
 echo -e "OpenSSH     : $opensh" | tee -a /etc/log-create-ssh.log
-echo -e "SSH WS      : $portsshws" | tee -a /etc/log-create-ssh.log
-echo -e "SSH SSL WS  : $wsssl" | tee -a /etc/log-create-ssh.log
-echo -e "SSL/TLS     : $ssl" | tee -a /etc/log-create-ssh.log
+echo -e "Dropbear   : 109, 143" | tee -a /etc/log-create-ssh.log
+echo -e "SSH WS      : 80, 8080, 8880, 2082" | tee -a /etc/log-create-ssh.log
+echo -e "SSH SSL WS  : 443, 8443, 2087, 2096" | tee -a /etc/log-create-ssh.log
+echo -e "SSL/TLS     :445, 447, 777" | tee -a /etc/log-create-ssh.log
 echo -e "UDPGW       : 7100-7300" | tee -a /etc/log-create-ssh.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
 echo -e "Payload WS-TLS" | tee -a /etc/log-create-ssh.log
@@ -79,9 +80,10 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
 echo -e "IP          : $IP" | tee -a /etc/log-create-ssh.log
 echo -e "Host        : $domen" | tee -a /etc/log-create-ssh.log
 echo -e "OpenSSH     : $opensh" | tee -a /etc/log-create-ssh.log
-echo -e "SSH WS      : $portsshws" | tee -a /etc/log-create-ssh.log
-echo -e "SSH SSL WS  : $wsssl" | tee -a /etc/log-create-ssh.log
-echo -e "SSL/TLS     :$ssl" | tee -a /etc/log-create-ssh.log
+echo -e "Dropbear   : 109, 143" | tee -a /etc/log-create-ssh.log
+echo -e "SSH WS      : 80, 8080, 8880, 2082" | tee -a /etc/log-create-ssh.log
+echo -e "SSH SSL WS  : 443, 8443, 2087, 2096" | tee -a /etc/log-create-ssh.log
+echo -e "SSL/TLS     :445, 447, 777" | tee -a /etc/log-create-ssh.log
 echo -e "UDPGW       : 7100-7300" | tee -a /etc/log-create-ssh.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
 echo -e "Expired On  : $exp" | tee -a /etc/log-create-ssh.log
@@ -155,10 +157,10 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
 echo -e "IP         : $IP"
 echo -e "Host       : $domen"
 echo -e "OpenSSH    : $opensh"
-echo -e "Dropbear   : $db"
-echo -e "SSH WS     : $portsshws"
-echo -e "SSH SSL WS : $wsssl"
-echo -e "SSL/TLS    :$ssl"
+echo -e "Dropbear   : 109, 143"
+echo -e "SSH WS     : 80, 8080, 8880, 2082"
+echo -e "SSH SSL WS : 443, 8443, 2087, 2096"
+echo -e "SSL/TLS    :445, 447, 777"
 echo -e "UDPGW      : 7100-7300"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Payload WS-TLS"
@@ -179,11 +181,11 @@ echo -e "Expired On : $exp"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "IP         : $IP"
 echo -e "Host       : $domen"
-echo -e "OpenSSH    : $opensh"
-echo -e "Dropbear   : $db"
-echo -e "SSH WS     : $portsshws"
-echo -e "SSH SSL WS : $wsssl"
-echo -e "SSL/TLS    :$ssl"
+echo -e "OpenSSH    : 22"
+echo -e "Dropbear   : 109, 143"
+echo -e "SSH WS     : 80, 8080, 8880, 2082"
+echo -e "SSH SSL WS : 443, 8443, 2087, 2096"
+echo -e "SSL/TLS    :445, 447, 777"
 echo -e "UDPGW      : 7100-7300"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Payload WS-TLS"
