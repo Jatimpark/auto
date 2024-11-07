@@ -14,11 +14,11 @@ LIGHT='\033[0;37m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Checking VPS"
 # Link Hosting Kalian
-akbarvpn="raw.githubusercontent.com/Jatimpark/auto/main/backup"
+repo="raw.githubusercontent.com/Jatimpark/auto/main/backup"
 
 apt install rclone -y
 printf "q\n" | rclone config
-wget -O /root/.config/rclone/rclone.conf "https://${akbarvpn}/rclone.conf"
+wget -O /root/.config/rclone/rclone.conf "https://${repo}/rclone.conf"
 git clone  https://github.com/magnific0/wondershaper.git
 cd wondershaper
 make install
@@ -43,12 +43,14 @@ logfile ~/.msmtp.log
 EOF
 chown -R www-data:www-data /etc/msmtprc
 cd /usr/bin
-wget -O menu-backup "https://${akbarvpn}/menu-backup.sh"
-wget -O backup "https://${akbarvpn}/backup.sh"
-wget -O restore "https://${akbarvpn}/restore.sh"
+wget -O menu-backup "https://${repo}/menu-backup.sh"
+wget -O backup "https://${repo}/backup.sh"
+wget -O restore "https://${repo}/restore.sh"
+wget -O cleaner "https://${repo}/cleaner.sh"
 chmod +x menu-backup
 chmod +x backup
 chmod +x restore
+chmod +x cleaner
 
 cd
 rm -f /root/set-br.sh

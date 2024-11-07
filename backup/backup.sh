@@ -23,7 +23,7 @@ cp /etc/shadow /root/backup/ &> /dev/null
 cp /etc/gshadow /root/backup/ &> /dev/null
 #cp /etc/ppp/chap-secrets /root/backup/chap-secrets &> /dev/null
 #cp /etc/ipsec.d/passwd /root/backup/passwd1 &> /dev/null
-cp -r /var/lib/ipvps.conf/ /root/backup/ipvps.conf &> /dev/null
+cp -r /var/lib/scrz-prem/ /root/backup/scrz-prem &> /dev/null
 cp -r /etc/xray /root/backup/xray &> /dev/null
 #cp -r /home/vps/public_html /root/backup/public_html &> /dev/null
 cd /root
