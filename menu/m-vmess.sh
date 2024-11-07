@@ -10,7 +10,7 @@ function add-ws(){
 clear
 MYIP=$(wget -qO- ipv4.icanhazip.com);
 clear
-source /var/lib/ipvps.conf
+source /var/lib/scrz-prem
 if [[ "$IP" = "" ]]; then
 domain=$(cat /etc/xray/domain)
 else
@@ -108,9 +108,9 @@ echo -e "\E[42;1;37m        Vmess Account        \E[0m" | tee -a /etc/log-create
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vmess.log
 echo -e "Remarks        : ${user}" | tee -a /etc/log-create-vmess.log
 echo -e "Domain         : ${domain}" | tee -a /etc/log-create-vmess.log
-echo -e "Port TLS       : 443, 8443" | tee -a /etc/log-create-vmess.log
-echo -e "Port none TLS  : 80, 8880" | tee -a /etc/log-create-vmess.log
-echo -e "Port gRPC      : 443, 8443" | tee -a /etc/log-create-vmess.log
+echo -e "Port TLS       : 443, 8443, 2087, 2096" | tee -a /etc/log-create-vmess.log
+echo -e "Port none TLS  : 80, 8080, 8880, 2082" | tee -a /etc/log-create-vmess.log
+echo -e "Port gRPC      : 443, 8443, 2087, 2096" | tee -a /etc/log-create-vmess.log
 echo -e "id             : ${uuid}" | tee -a /etc/log-create-vmess.log
 echo -e "alterId        : 0" | tee -a /etc/log-create-vmess.log
 echo -e "Security       : auto" | tee -a /etc/log-create-vmess.log
@@ -208,9 +208,9 @@ echo -e "\E[42;1;37m       Trial Mmess      \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
-echo -e "Port TLS       : 443, 8443"
-echo -e "Port none TLS  : 80, 8880"
-echo -e "Port gRPC      : 443, 8443"
+echo -e "Port TLS       : 443, 8443, 2087, 2096"
+echo -e "Port none TLS  :  80, 8080, 8880, 2082"
+echo -e "Port gRPC      : 443, 8443, 2087, 2096"
 echo -e "id             : ${uuid}"
 echo -e "alterId        : 0"
 echo -e "Security       : auto"
@@ -489,9 +489,9 @@ echo -e "\E[42;1;37m        Vmess Account        \E[0m" | tee -a /etc/log-create
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vmess.log
 echo -e "Remarks        : ${user}" | tee -a /etc/log-create-vmess.log
 echo -e "Domain         : ${domain}" | tee -a /etc/log-create-vmess.log
-echo -e "Port TLS       : 443, 8443" | tee -a /etc/log-create-vmess.log
-echo -e "Port none TLS  : 80, 8880" | tee -a /etc/log-create-vmess.log
-echo -e "Port gRPC      : 443, 8443" | tee -a /etc/log-create-vmess.log
+echo -e "Port TLS       : 443, 8443, 2087, 2096" | tee -a /etc/log-create-vmess.log
+echo -e "Port none TLS  : 80, 8080, 8880, 2082" | tee -a /etc/log-create-vmess.log
+echo -e "Port gRPC      : 443, 8443, 2087, 2096" | tee -a /etc/log-create-vmess.log
 echo -e "id             : ${uuid}" | tee -a /etc/log-create-vmess.log
 echo -e "alterId        : 0" | tee -a /etc/log-create-vmess.log
 echo -e "Security       : auto" | tee -a /etc/log-create-vmess.log
