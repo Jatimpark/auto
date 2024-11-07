@@ -8,6 +8,9 @@ echo ""
 domain=$(cat /root/domain)
 sleep 0.5
 mkdir -p /etc/xray 
+echo -e "${NC} Upload Arya Blitar Core V 1.8.23"
+sleep 2
+echo ""
 echo -e "[ ${green}INFO${NC} ] Checking... "
 apt install iptables iptables-persistent -y
 sleep 0.5
@@ -117,7 +120,7 @@ cat > /etc/xray/config.json << END
         }
      },
     {
-     "listen": "127.0.0.1",
+    "listen": "127.0.0.1",
      "port": "23457",
      "protocol": "vmess",
       "settings": {
@@ -137,7 +140,7 @@ cat > /etc/xray/config.json << END
         }
      },
     {
-     "listen": "127.0.0.1",
+      "listen": "127.0.0.1",
      "port": "31234",
      "protocol": "vmess",
       "settings": {
@@ -361,9 +364,6 @@ systemctl restart xray
 systemctl restart nginx
 systemctl enable runn
 systemctl restart runn
-
-cd /usr/bin/
-wget -O m-vmess "https://raw.githubusercontent.com/Jatimpark/auto/main/menu/m-vmess.sh" && chmod +x m-vmess
 
 sleep 0.5
 yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
