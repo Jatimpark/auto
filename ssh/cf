@@ -6,7 +6,7 @@ DOMAIN=aryablitar.filegear-sg.me
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c4)
 SUB_DOMAIN=xray-${sub}.aryablitar.filegear-sg.me
 CF_ID=lahseta19@gmail.com
-CF_KEY=3f485e550288defa9d0e97039eab598de1c58
+CF_KEY=641efc1ac85cd3f401f639df955ec5b696c8c
 set -euo pipefail
 IP=$(wget -qO- ifconfig.me);
 echo "Updating DNS for ${SUB_DOMAIN}..."
@@ -34,7 +34,7 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
      -H "Content-Type: application/json" \
      --data '{"type":"A","name":"'${SUB_DOMAIN}'","content":"'${IP}'","ttl":120,"proxied":false}')
 echo "Host : $SUB_DOMAIN"
-echo "IP=$SUB_DOMAIN" >> /var/lib/ipvps.conf
+echo "IP=$SUB_DOMAIN" >> /var/lib/scrz-prem
 echo $SUB_DOMAIN > /root/domain
 echo "$SUB_DOMAIN" > /root/scdomain
 echo "$SUB_DOMAIN" > /etc/xray/scdomain
