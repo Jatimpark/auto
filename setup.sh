@@ -112,7 +112,7 @@ echo -e "$BGreen Izin Diterima!$NC"
 sleep 2
 
 mkdir -p /var/lib/ >/dev/null 2>&1
-echo "IP=" >> /var/lib/scrz-prem
+echo "IP=" >> /var/lib/ipvps.conf
 
 echo ""
 clear
@@ -136,7 +136,7 @@ clear
 	echo "$dom" > /etc/xray/domain
 	echo "$dom" > /etc/v2ray/domain
 	echo "$dom" > /root/domain
-    echo "IP=$dom" > /var/lib/scrz-prem
+    echo "IP=$dom" > /var/lib/ipvps.conf
     else 
     echo "Argumen Tidak Ditemukan"
     exit 1
